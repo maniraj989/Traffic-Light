@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Digital Traffic Light Controller - Academic web-based simulation developed for SRM Institute of Science and Technology, Tiruchirappalli.">
+  <meta name="author" content="Faculty of Engineering and Technology, SRM Institute of Science and Technology">
+  <title>Digital Traffic Light Controller | SRM Institute of Science and Technology</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/traffic-light.svg">
+
+  <!-- Inter Font from CDN with system fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       A. HEADER NAVIGATION WITH COLLEGE DETAILS
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="5" y="2" width="14" height="20" rx="3.5" fill="#181C22" stroke="#373E47" stroke-width="1.5"/>
+            <circle cx="12" cy="6" r="2.3" fill="#E53935"/>
+            <circle cx="12" cy="12" r="2.3" fill="#FBC02D"/>
+            <circle cx="12" cy="18" r="2.3" fill="#2E9D62"/>
+          </svg>
+        </div>
+        <div class="brand-content">
+          <div class="brand-title">
+            Digital <span class="brand-highlight">Traffic Light</span> Controller
+            <span class="brand-badge">Academic Project</span>
+          </div>
+          <div class="header-institution-info">
+            <span class="inst-item-name">SRM Institute of Science and Technology</span>
+            <span class="inst-sep">•</span>
+            <span class="inst-item-loc">Tiruchirappalli – 621 105</span>
+            <span class="inst-sep">•</span>
+            <span class="inst-item-fac">Faculty of Engineering and Technology</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="header-nav" aria-label="Main Navigation">
+        <a href="#simulation" class="nav-link active" id="nav-home">Home</a>
+        <a href="#team" class="nav-link" id="nav-team">Team</a>
+        <a href="#about" class="nav-link" id="nav-about">About Project</a>
+        <a href="#statistics" class="nav-link" id="nav-stats">Statistics</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MAIN DASHBOARD & SIMULATION
+       ======================================================================== -->
+  <main class="main-wrapper" id="simulation">
+
+    <!-- TWO-COLUMN DASHBOARD GRID -->
+    <div class="dashboard-grid">
+
+      <!-- LEFT COLUMN: TRAFFIC INTERSECTION SIMULATION -->
+      <section class="panel-card" aria-label="Traffic Intersection Simulation">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg class="panel-header-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 22L8 2h2l-2 20H4zm12 0l-2-20h2l4 20h-4zM11 4h2v3h-2V4zm0 6h2v3h-2v-3zm0 6h2v3h-2v-3z"/>
+            </svg>
+            Traffic Intersection Simulation
+          </div>
+          <span class="panel-tag" id="intersection-phase-tag">PHASE 1 : NORTH-SOUTH GREEN</span>
+        </div>
+
+        <div class="panel-body">
+          <!-- TOP-DOWN 4-WAY INTERSECTION VIEWPORT -->
+          <div class="intersection-viewport" id="intersection-viewport">
+            
+            <!-- Curbs & Grass Quadrants with Trees -->
+            <div class="corner-quadrant corner-nw">
+              <div class="tree tree-1"></div>
+              <div class="tree tree-2"></div>
+            </div>
+            <div class="corner-quadrant corner-ne">
+              <div class="tree tree-3"></div>
+              <div class="tree tree-4"></div>
+            </div>
+            <div class="corner-quadrant corner-sw">
+              <div class="tree tree-5"></div>
+              <div class="tree tree-6"></div>
+            </div>
+            <div class="corner-quadrant corner-se">
+              <div class="tree tree-7"></div>
+              <div class="tree tree-8"></div>
+            </div>
+
+            <!-- Vertical Road (North-South) -->
+            <div class="road-vertical">
+              <div class="lane-divider-v-north"></div>
+              <div class="lane-divider-v-south"></div>
+            </div>
+
+            <!-- Horizontal Road (East-West) -->
+            <div class="road-horizontal">
+              <div class="lane-divider-h-west"></div>
+              <div class="lane-divider-h-east"></div>
+            </div>
+
+            <!-- Pedestrian Crossings (Zebra) -->
+            <div class="crosswalk crosswalk-north">
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+            </div>
+            <div class="crosswalk crosswalk-south">
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+            </div>
+            <div class="crosswalk crosswalk-west">
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+            </div>
+            <div class="crosswalk crosswalk-east">
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+              <div class="zebra-stripe"></div>
+            </div>
+
+            <!-- Stop Lines -->
+            <div class="stop-line stop-line-north"></div>
+            <div class="stop-line stop-line-south"></div>
+            <div class="stop-line stop-line-west"></div>
+            <div class="stop-line stop-line-east"></div>
+
+            <!-- Direction Badges -->
+            <div class="direction-badge badge-north">▲ NORTH</div>
+            <div class="direction-badge badge-south">▼ SOUTH</div>
+            <div class="direction-badge badge-west">◀ WEST</div>
+            <div class="direction-badge badge-east">EAST ▶</div>
+
+            <!-- 4 TRAFFIC SIGNAL UNITS -->
+            
+            <!-- North Traffic Signal Unit (Controls Southbound traffic) -->
+            <div class="signal-unit signal-unit-north" id="signal-north">
+              <div class="signal-housing">
+                <div class="signal-light light-red" data-light="red" title="North Red"></div>
+                <div class="signal-light light-yellow" data-light="yellow" title="North Yellow"></div>
+                <div class="signal-light light-green" data-light="green" title="North Green"></div>
+              </div>
+              <span class="signal-unit-label">N SIGNAL</span>
+            </div>
+
+            <!-- South Traffic Signal Unit (Controls Northbound traffic) -->
+            <div class="signal-unit signal-unit-south" id="signal-south">
+              <div class="signal-housing">
+                <div class="signal-light light-red" data-light="red" title="South Red"></div>
+                <div class="signal-light light-yellow" data-light="yellow" title="South Yellow"></div>
+                <div class="signal-light light-green" data-light="green" title="South Green"></div>
+              </div>
+              <span class="signal-unit-label">S SIGNAL</span>
+            </div>
+
+            <!-- West Traffic Signal Unit (Controls Eastbound traffic) -->
+            <div class="signal-unit signal-unit-west" id="signal-west">
+              <div class="signal-housing">
+                <div class="signal-light light-red" data-light="red" title="West Red"></div>
+                <div class="signal-light light-yellow" data-light="yellow" title="West Yellow"></div>
+                <div class="signal-light light-green" data-light="green" title="West Green"></div>
+              </div>
+              <span class="signal-unit-label">W SIGNAL</span>
+            </div>
+
+            <!-- East Traffic Signal Unit (Controls Westbound traffic) -->
+            <div class="signal-unit signal-unit-east" id="signal-east">
+              <div class="signal-housing">
+                <div class="signal-light light-red" data-light="red" title="East Red"></div>
+                <div class="signal-light light-yellow" data-light="yellow" title="East Yellow"></div>
+                <div class="signal-light light-green" data-light="green" title="East Green"></div>
+              </div>
+              <span class="signal-unit-label">E SIGNAL</span>
+            </div>
+
+            <!-- Vehicle Simulation Layer (Moving Top-down Vehicles) -->
+            <div class="traffic-vehicles-layer" id="vehicles-layer"></div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: CONTROL PANEL -->
+      <section class="panel-card" aria-label="Control Panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg class="panel-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+            Control Panel
+          </div>
+          <span class="panel-tag" id="controller-state-tag">OPERATIONAL</span>
+        </div>
+
+        <div class="panel-body">
+          <div class="control-panel-wrapper">
+
+            <!-- Primary Action Buttons: Start, Stop, Reset -->
+            <div class="control-section">
+              <span class="control-label">System Operations</span>
+              <div class="button-group-primary">
+                <button type="button" class="btn btn-start" id="btn-start" title="Start traffic simulation">
+                  <svg class="btn-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+                  Start
+                </button>
+                <button type="button" class="btn btn-stop" id="btn-stop" title="Stop simulation safely">
+                  <svg class="btn-icon" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+                  Stop
+                </button>
+                <button type="button" class="btn btn-reset" id="btn-reset" title="Reset sequence and timers">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                  Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Operating Mode Selector -->
+            <div class="control-section">
+              <span class="control-label">Operating Mode</span>
+              <div class="mode-selector-group" role="radiogroup" aria-label="Operating Mode Selector">
+                <label class="mode-radio-label selected" id="label-mode-auto">
+                  <input type="radio" name="operating-mode" value="auto" id="radio-mode-auto" checked>
+                  Automatic
+                </label>
+                <label class="mode-radio-label" id="label-mode-manual">
+                  <input type="radio" name="operating-mode" value="manual" id="radio-mode-manual">
+                  Manual
+                </label>
+              </div>
+            </div>
+
+            <!-- Traffic Density Selector -->
+            <div class="control-section">
+              <span class="control-label">
+                Traffic Density
+                <span id="density-green-badge">Green: 15s</span>
+              </span>
+              <div class="density-select-wrapper">
+                <select id="density-select" class="density-select" aria-label="Select Traffic Density">
+                  <option value="low">Low Density (10s Green)</option>
+                  <option value="medium" selected>Medium Density (15s Green)</option>
+                  <option value="high">High Density (20s Green)</option>
+                </select>
+              </div>
+              <div class="density-meta">
+                <span>Yellow: 3s (Fixed)</span>
+                <span>All-Red Clearance: 1s</span>
+              </div>
+            </div>
+
+            <!-- Manual Controls Box (Enabled in Manual Mode) -->
+            <div class="control-section">
+              <span class="control-label">Manual Signal Controls</span>
+              <div class="manual-controls-panel disabled" id="manual-controls-panel">
+                <div class="manual-notice">
+                  <strong>Safety Interlock Active:</strong> Switching directions triggers a 3-second yellow warning and a 1-second all-red clearance before granting green.
+                </div>
+
+                <div class="manual-buttons-grid">
+                  <button type="button" class="btn btn-manual-ns" id="btn-manual-ns">
+                    <span>▲▼ North-South Corridor</span>
+                    <strong>Set Green</strong>
+                  </button>
+
+                  <button type="button" class="btn btn-manual-ew" id="btn-manual-ew">
+                    <span>◀▶ East-West Corridor</span>
+                    <strong>Set Green</strong>
+                  </button>
+
+                  <button type="button" class="btn btn-manual-hold" id="btn-manual-hold">
+                    All Red Clearance (Safety Hold)
+                  </button>
+                </div>
+
+                <div class="manual-interlock-status" id="manual-interlock-status">
+                  <span>● Interlock ready. Select direction.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simulation Extras: Vehicles Toggle & Demo Speed -->
+            <div class="simulation-options-bar">
+              <label class="sim-toggle-label">
+                <input type="checkbox" id="toggle-vehicles" checked>
+                Vehicle Traffic Flow
+              </label>
+
+              <div class="speed-control-wrap">
+                <span class="speed-label">Clock Speed:</span>
+                <select id="sim-speed-select" class="sim-speed-select" aria-label="Simulation Speed">
+                  <option value="1" selected>1x (Normal)</option>
+                  <option value="2">2x (Fast Test)</option>
+                  <option value="5">5x (Demo Cycle)</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ========================================================================
+         C. SYSTEM INFORMATION SECTION (Horizontal Layout)
+         ======================================================================== -->
+    <section class="system-info-bar" aria-label="System Real-Time Information">
+      
+      <!-- Current Active Direction -->
+      <div class="info-item">
+        <div class="info-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <span class="info-label">Active Direction</span>
+          <span class="info-value info-direction-text" id="info-active-direction">North - South</span>
+        </div>
+      </div>
+
+      <!-- Current Signal Color -->
+      <div class="info-item">
+        <div class="info-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <span class="info-label">Current Signal</span>
+          <span class="info-value">
+            <span class="color-badge color-green" id="info-signal-badge">GREEN</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="info-item">
+        <div class="info-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <span class="info-label">Countdown Timer</span>
+          <span class="info-value" id="info-timer">15s</span>
+        </div>
+      </div>
+
+      <!-- System Status -->
+      <div class="info-item">
+        <div class="info-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <span class="info-label">System Status</span>
+          <span class="info-value" id="info-status-text">
+            <span class="status-indicator-dot running" id="info-status-dot"></span>
+            Running...
+          </span>
+        </div>
+      </div>
+
+      <!-- Signal Cycle -->
+      <div class="info-item">
+        <div class="info-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <rect x="3" y="14" width="4" height="8" rx="1"/>
+            <rect x="10" y="8" width="4" height="14" rx="1"/>
+            <rect x="17" y="3" width="4" height="19" rx="1"/>
+          </svg>
+        </div>
+        <div class="info-content">
+          <span class="info-label">Signal Cycle</span>
+          <span class="info-value" id="info-cycle-count">1</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         2. PROJECT TEAM / STUDENT DETAILS SECTION
+         ======================================================================== -->
+    <section class="team-section" id="team" aria-label="Project Team and Student Details">
+      <div class="section-title-wrap">
+        <div>
+          <h2 class="section-heading">Project Team / Student Details</h2>
+          <span class="section-subtext">Faculty of Engineering and Technology &bull; SRM Institute of Science and Technology</span>
+        </div>
+        <span class="academic-badge-pill">Academic Engineering Project</span>
+      </div>
+
+      <div class="students-grid">
+        
+        <!-- Student 1 -->
+        <div class="student-card">
+          <div class="student-card-header">
+            <span class="student-order-tag">Student 1</span>
+            <span class="student-program-tag">Degree Engineering</span>
+          </div>
+          <div class="student-card-body">
+            <h3 class="student-name">Nirajan Yadav</h3>
+            <div class="student-reg-box">
+              <span class="reg-label">Registration Number</span>
+              <strong class="reg-number">RA2511013050040</strong>
+            </div>
+            <div class="student-affiliation">
+              <span class="affil-faculty">Faculty of Engineering and Technology</span>
+              <span class="affil-inst">SRM Institute of Science and Technology</span>
+              <span class="affil-campus">Tiruchirappalli – 621 105</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 2 -->
+        <div class="student-card">
+          <div class="student-card-header">
+            <span class="student-order-tag">Student 2</span>
+            <span class="student-program-tag">Degree Engineering</span>
+          </div>
+          <div class="student-card-body">
+            <h3 class="student-name">Irfan Alam</h3>
+            <div class="student-reg-box">
+              <span class="reg-label">Registration Number</span>
+              <strong class="reg-number">RA2511013050046</strong>
+            </div>
+            <div class="student-affiliation">
+              <span class="affil-faculty">Faculty of Engineering and Technology</span>
+              <span class="affil-inst">SRM Institute of Science and Technology</span>
+              <span class="affil-campus">Tiruchirappalli – 621 105</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student 3 -->
+        <div class="student-card">
+          <div class="student-card-header">
+            <span class="student-order-tag">Student 3</span>
+            <span class="student-program-tag">Degree Engineering</span>
+          </div>
+          <div class="student-card-body">
+            <h3 class="student-name">Sudip Prakash Prasad Kurmi</h3>
+            <div class="student-reg-box">
+              <span class="reg-label">Registration Number</span>
+              <strong class="reg-number">RA2511013050052</strong>
+            </div>
+            <div class="student-affiliation">
+              <span class="affil-faculty">Faculty of Engineering and Technology</span>
+              <span class="affil-inst">SRM Institute of Science and Technology</span>
+              <span class="affil-campus">Tiruchirappalli – 621 105</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         D. ABOUT PROJECT SECTION WITH INSTITUTIONAL INFO
+         ======================================================================== -->
+    <section class="about-section" id="about" aria-label="About Project">
+      <div class="section-title-wrap">
+        <h2 class="section-heading">About Project</h2>
+        <span class="section-subtext">Faculty of Engineering and Technology &bull; SRM Institute of Science and Technology</span>
+      </div>
+
+      <div class="about-card">
+        
+        <!-- Institutional Affiliation Sub-Card -->
+        <div class="institution-overview-card">
+          <div class="inst-overview-header">
+            <svg class="inst-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <strong>Academic Institution Information</strong>
+          </div>
+          <div class="inst-overview-grid">
+            <div class="inst-info-block">
+              <span class="inst-block-label">College Name</span>
+              <strong class="inst-block-val">SRM Institute of Science and Technology</strong>
+            </div>
+            <div class="inst-info-block">
+              <span class="inst-block-label">Campus Location</span>
+              <span class="inst-block-val">Tiruchirappalli – 621 105</span>
+            </div>
+            <div class="inst-info-block">
+              <span class="inst-block-label">Faculty</span>
+              <span class="inst-block-val">Faculty of Engineering and Technology</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Description Box -->
+        <div class="about-intro-box">
+          <div class="about-project-name">Project Name: Digital Traffic Light Controller</div>
+          <p class="about-description">
+            The Digital Traffic Light Controller is a web-based simulation designed to demonstrate the working principle of an automated traffic signal system. It controls traffic flow at a four-way intersection by managing signal timing and switching between red, yellow and green lights. The project demonstrates basic traffic management logic through an interactive web interface.
+          </p>
+        </div>
+
+        <!-- Project Objectives & Tech Stack Grid -->
+        <div class="about-grid-details">
+          
+          <div class="about-subcard">
+            <h3 class="about-subcard-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              Project Objectives
+            </h3>
+            <ul class="about-list">
+              <li>Demonstrate automated traffic signal management at a 4-way intersection.</li>
+              <li>Implement a reliable 6-phase Finite State Machine (FSM) ensuring safe signal clearance.</li>
+              <li>Eliminate conflicting traffic movements by strictly preventing simultaneous green signals.</li>
+              <li>Provide manual operator override with built-in safety interlocks and yellow clearances.</li>
+              <li>Simulate real-world density adaptations (Low, Medium, High traffic green intervals).</li>
+            </ul>
+          </div>
+
+          <div class="about-subcard">
+            <h3 class="about-subcard-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Technologies Used
+            </h3>
+            <ul class="about-list">
+              <li><strong>HTML5:</strong> Semantic document structure, accessible ARIA attributes, SVG vector rendering.</li>
+              <li><strong>CSS3:</strong> Custom Properties, Grid/Flexbox layouts, realistic signal housings, crosswalk styling.</li>
+              <li><strong>Vanilla JavaScript (ES6+):</strong> Single-interval deterministic timer, state machine transitions, event dispatching.</li>
+              <li><strong>Zero Dependencies:</strong> 100% native client-side execution; fully compatible with modern browsers, GitHub Pages, and Vercel.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Working Principle Section & FSM Table -->
+        <div class="about-subcard">
+          <h3 class="about-subcard-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Working Principle: 6-Phase Signal State Sequence
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;">
+            The controller operates on an algorithmic Finite State Machine (FSM). Opposite arterial directions (North & South) share identical green/yellow phases, while orthogonal directions (East & West) are held at solid Red. Before granting green to the opposing arterial, a 3-second Yellow caution and a mandatory 1-second All-Red clearance interval guarantee the intersection is physically vacated.
+          </p>
+
+          <div class="table-responsive">
+            <table class="fsm-table">
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>North & South Signals</th>
+                  <th>East & West Signals</th>
+                  <th>Standard Timing</th>
+                  <th>Operational Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Phase 1</strong></td>
+                  <td><span class="badge-table-green">GREEN (Active)</span></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td>15s (10s Low, 20s High)</td>
+                  <td>Allows North-South vehicular and pedestrian right-of-way.</td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 2</strong></td>
+                  <td><span class="badge-table-yellow">YELLOW (Caution)</span></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td>3s (Fixed)</td>
+                  <td>Warns oncoming North-South vehicles to prepare to stop.</td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 3</strong></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td>1s (Safety Clearance)</td>
+                  <td>All-Red intersection safety buffer; clears remaining vehicles.</td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 4</strong></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td><span class="badge-table-green">GREEN (Active)</span></td>
+                  <td>15s (10s Low, 20s High)</td>
+                  <td>Allows East-West vehicular and pedestrian right-of-way.</td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 5</strong></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td><span class="badge-table-yellow">YELLOW (Caution)</span></td>
+                  <td>3s (Fixed)</td>
+                  <td>Warns oncoming East-West vehicles to prepare to stop.</td>
+                </tr>
+                <tr>
+                  <td><strong>Phase 6</strong></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td><span class="badge-table-red">RED (Hold)</span></td>
+                  <td>1s (Safety Clearance)</td>
+                  <td>All-Red intersection safety buffer before restarting cycle.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         E. STATISTICS & SYSTEM MONITORING SECTION
+         ======================================================================== -->
+    <section class="statistics-section" id="statistics" aria-label="System Statistics">
+      <div class="section-title-wrap">
+        <h2 class="section-heading">System Statistics & Monitoring</h2>
+        <span class="section-subtext">Real-Time Telemetry & Diagnostic Feed</span>
+      </div>
+
+      <!-- Live Metric Cards -->
+      <div class="stats-cards-grid">
+        <div class="stat-metric-card">
+          <span class="stat-metric-label">Total Completed Cycles</span>
+          <span class="stat-metric-value" id="stat-total-cycles">1</span>
+          <span class="stat-metric-sub">Complete 6-phase sequences</span>
+        </div>
+
+        <div class="stat-metric-card">
+          <span class="stat-metric-label">Total Signal Changes</span>
+          <span class="stat-metric-value" id="stat-total-changes">0</span>
+          <span class="stat-metric-sub">Individual state transitions</span>
+        </div>
+
+        <div class="stat-metric-card">
+          <span class="stat-metric-label">Operating Mode</span>
+          <span class="stat-metric-value" id="stat-current-mode" style="font-size: 1.25rem;">Automatic</span>
+          <span class="stat-metric-sub">FSM automated sequencing</span>
+        </div>
+
+        <div class="stat-metric-card">
+          <span class="stat-metric-label">Traffic Density</span>
+          <span class="stat-metric-value" id="stat-current-density" style="font-size: 1.25rem;">Medium (15s)</span>
+          <span class="stat-metric-sub">Dynamic green duration</span>
+        </div>
+      </div>
+
+      <!-- Live Event Terminal / Diagnostic Log -->
+      <div class="activity-log-card">
+        <div class="log-header">
+          <span class="log-title">Controller Activity & Safety Log</span>
+          <button type="button" class="btn-clear-log" id="btn-clear-log">Clear Log</button>
+        </div>
+        <div class="log-terminal" id="activity-log-terminal" role="log" aria-live="polite">
+          <!-- Dynamically populated log entries -->
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       3. FOOTER UPDATE WITH EXACT COLLEGE AND FACULTY DETAILS
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-project-title">Digital Traffic Light Controller</div>
+      
+      <div class="footer-college-block">
+        <div class="footer-college-name">SRM Institute of Science and Technology</div>
+        <div class="footer-college-location">Tiruchirappalli – 621 105</div>
+      </div>
+
+      <div class="footer-faculty-name">Faculty of Engineering and Technology</div>
+
+      <div class="footer-project-statement">Project developed as part of an academic engineering project.</div>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script src="js/script.js"></script>
+</body>
+</html>
